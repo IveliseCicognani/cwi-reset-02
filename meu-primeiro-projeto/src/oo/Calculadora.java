@@ -14,7 +14,7 @@ public class Calculadora {
         return valor1 * valor2;
     }
 
-    public int divide(int valor1, int valor2){
+    public double divide(double valor1, double valor2){
         return valor1 / valor2;
     }
 }

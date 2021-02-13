@@ -15,7 +15,7 @@ public class Aplicacao {
     int resultadoMultiplicacao = calc.multiplica(3,4);
         System.out.println(resultadoMultiplicacao);
 
-    int resultadoDivisao = calc.divide(4,2);
+    double resultadoDivisao = calc.divide(5,2);
         System.out.println(resultadoDivisao);
 
     boolean resultadoComparacao = comparador.menorQue(7,10);
