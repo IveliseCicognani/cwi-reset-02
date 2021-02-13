@@ -23,6 +23,7 @@ public class Filme {
         System.out.println("Descricao filme= " + this.descricao);
         System.out.println("Duração= " + this.duracao);
         System.out.println("Nome diretor= " + this.diretor.getNome());
+        System.out.println("Avaliação= " + this.avaliacao);
     }
 
     private void defineAvaliacao(int avaliacao){
