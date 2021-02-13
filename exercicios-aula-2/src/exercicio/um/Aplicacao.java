@@ -7,8 +7,8 @@ public class Aplicacao {
         Diretor diretor = new Diretor("Ivelise Brum",32,9, Genero.FEMININO);
         Ator ator = new Ator("Peter",40, Genero.MASCULINO, 2);
 
-        Filme primeiroFilme = new Filme("Gladiador","Descrição do filme",120,1988,diretor);
-        Filme segundoFilme = new Filme("Titanic","Descrição filme 2",160,1887,diretor);
+        Filme primeiroFilme = new Filme("Gladiador","Descrição do filme",120,1988,diretor,4);
+        Filme segundoFilme = new Filme("Titanic","Descrição filme 2",160,1887,diretor,3);
 
         primeiroFilme.reproduzirFilme();
         segundoFilme.reproduzirFilme();
