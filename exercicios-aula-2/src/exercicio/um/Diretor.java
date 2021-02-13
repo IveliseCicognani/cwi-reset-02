@@ -19,26 +19,6 @@ public class Diretor {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public int getIdade() {
-        return idade;
-    }
-
-    public void setIdade(int idade) {
-        this.idade = idade;
-    }
-
-    public int getQuantidadeDeFilmes() {
-        return quantidadeDeFilmes;
-    }
-
-    public void setQuantidadeDeFilmes(int quantidadeDeFilmes) {
-        this.quantidadeDeFilmes = quantidadeDeFilmes;
-    }
-
     public void imprimir() {
         System.out.println("Nome: " + nome);
         System.out.println("Idade: " + idade);
