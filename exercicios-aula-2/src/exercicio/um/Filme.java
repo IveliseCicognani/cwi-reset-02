@@ -1,7 +1,5 @@
 package exercicio.um;
 
-import java.sql.SQLOutput;
-
 public class Filme {
     private String nome;
     private String descricao;
