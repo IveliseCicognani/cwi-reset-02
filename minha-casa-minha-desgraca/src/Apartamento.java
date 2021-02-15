@@ -16,6 +16,6 @@ public class Apartamento extends Imovel{
                 +super.getEndereco().getComplemento()+", Bairro: "
                 +super.getEndereco().getBairro()+", Cidade: "
                 +super.getEndereco().getCidade()+", UF: "
-                +super.getEndereco().getEstado().getDescricao()+".");
+                +super.getEndereco().getEstado().getDescricao()+". \n Valor: R$ " +super.getValor()+".");
     }
 }
