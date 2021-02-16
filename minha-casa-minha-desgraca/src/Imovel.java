@@ -8,14 +8,12 @@ public class Imovel {
     }
     public String apresentacao(){
 
-        return ("Imóvel localizado no endereço "
-                +endereco.getLogradouro()+", "
-                +endereco.getNumero()+", "
-                +endereco.getComplemento()+", "
-                +endereco.getBairro()+", "
-                +endereco.getCidade()+", "
-                +endereco.getEstado().getDescricao()+
-                ". Valor: R$ " +valor +".");
+        return ("Localizado(a) no endereço: "+endereco.getLogradouro()+", Nº: "
+                +endereco.getNumero()+", Compl.: "
+                +endereco.getComplemento()+", Bairro: "
+                +endereco.getBairro()+", Cidade: "
+                +endereco.getCidade()+", UF: "
+                +endereco.getEstado().getDescricao()+".\nValor: R$ " +getValor() +".");
     }
 
     public Endereco getEndereco() {

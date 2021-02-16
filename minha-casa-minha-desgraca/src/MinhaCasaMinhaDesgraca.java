@@ -18,12 +18,12 @@ public class MinhaCasaMinhaDesgraca {
          */
 
         Endereco enderecoA = new Endereco("Rua Getúlio Vargas", 550, "Apto 702", "Tristeza","Portão", UnidadeFederativa.RS);
-        Endereco enderecoB = new Endereco("Rua Reseters", 520, "Ferragem", "Aleluia","Cabo Frio", UnidadeFederativa.RJ);
+        Endereco enderecoB = new Endereco("Rua Reseters", 520, " ", "Aleluia","Cabo Frio", UnidadeFederativa.RJ);
         Endereco enderecoC = new Endereco("Rua Andrade Neves", 210, "Apto 204", "Centro","Bauru", UnidadeFederativa.SP);
-        Endereco enderecoD = new Endereco("Rua Abobrinha", 102, "Correios", "Vila Velha","Novo Hamburgo", UnidadeFederativa.RS);
+        Endereco enderecoD = new Endereco("Rua Abobrinha", 102, " ", "Vila Velha","Novo Hamburgo", UnidadeFederativa.RS);
 
-        Apartamento imovelA = new Apartamento(enderecoA, 490000, 7);
-        Casa imovelB = new Casa(enderecoB, 180000, true);
+        Apartamento imovelA = new Apartamento(enderecoA, 51000, 7);
+        Casa imovelB = new Casa(enderecoB, 1800000, true);
         Apartamento imovelC = new Apartamento(enderecoC, 350000, 2);
         Casa imovelD = new Casa(enderecoD, 180000, false);
 

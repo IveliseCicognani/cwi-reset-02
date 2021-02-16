@@ -9,13 +9,6 @@ public class Apartamento extends Imovel{
 
     @Override
     public String apresentacao() {
-        return ("[APARTAMENTO] Localizado no endereço: "
-                +super.getEndereco().getLogradouro()+", Nº: "
-                +super.getEndereco().getNumero()+", Andar: "
-                +andar+", Compl.: "
-                +super.getEndereco().getComplemento()+", Bairro: "
-                +super.getEndereco().getBairro()+", Cidade: "
-                +super.getEndereco().getCidade()+", UF: "
-                +super.getEndereco().getEstado().getDescricao()+". \n Valor: R$ " +super.getValor()+".");
+      return ("[APARTAMENTO] no "+andar+" andar, " + super.apresentacao());
     }
 }

@@ -48,13 +48,7 @@ public class PropostaFinanciamento {
 
     private void imprimirPropostaAprovada(){
         System.out.println("Nome do beneficiário: "+ beneficiario.getNome());
-        System.out.println("Imóvel: "
-                +imovel.getEndereco().getLogradouro()+", Nº: "
-                +imovel.getEndereco().getNumero()+", Compl.: "
-                +imovel.getEndereco().getComplemento()+", Bairro: "
-                +imovel.getEndereco().getBairro()+", Cidade: "
-                +imovel.getEndereco().getCidade()+", UF: "
-                +imovel.getEndereco().getEstado().getDescricao()+".");
+        System.out.println("Imóvel: " +imovel.apresentacao());
         System.out.println("Prazo: " +prazoPagamento + " meses.");
         System.out.println("--------------STATUS PROPOSTA---------------------");
         System.out.println("Parabéns, sua proposta foi APROVADA.");
@@ -62,13 +56,7 @@ public class PropostaFinanciamento {
 
     private void imprimirPropostaNegada(){
         System.out.println("Nome do beneficiário: "+ beneficiario.getNome());
-        System.out.println("Imóvel: "
-                        +imovel.getEndereco().getLogradouro()+", "
-                        +imovel.getEndereco().getNumero()+", "
-                        +imovel.getEndereco().getComplemento()+", "
-                        +imovel.getEndereco().getBairro()+", "
-                        +imovel.getEndereco().getCidade()+", "
-                        +imovel.getEndereco().getEstado().getDescricao()+".");
+        System.out.println("Imóvel: "+imovel.apresentacao());
         System.out.println("Prazo: " + prazoPagamento + " meses.");
         System.out.println("--------------STATUS PROPOSTA---------------------");
         System.out.println("Infelizmente sua proposta foi NEGADA.");
