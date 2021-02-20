@@ -21,7 +21,7 @@ public class Pessoa {
 //        int idade = date.getYear() - dataNascimento.getYear();
 
         System.out.println("Nome: "+ nome);
-        System.out.println("Idade: "+ Period.between(dataNascimento, LocalDate.now()));
+        System.out.println("Idade: "+ Period.between(dataNascimento, LocalDate.now()).getYears());
         System.out.println("Gênero: "+ genero.getDescricao());
     }
 
