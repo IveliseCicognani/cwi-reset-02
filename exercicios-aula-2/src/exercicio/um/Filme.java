@@ -47,6 +47,7 @@ public class Filme {
     }
 
     public void exibirCreditos(){
+        System.out.println("---------------" + nome+ "------------------");
         for(Pessoa pessoa : this.elenco){
             pessoa.imprimir();
 
