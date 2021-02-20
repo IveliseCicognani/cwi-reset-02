@@ -10,7 +10,7 @@ public class ImoveisParaFinanciamento {
     }
 
     /**
-     * Registra um imóvel como opção de financiamento. O imóvel só pode ser aceito se o valor dele for
+     * Registra um imóvel como opção de financiamento. O imóvel só pode ser aceito se o valor dele for,,,,,,,,,,,
      *   maior ou igual a R$ 50.000,00 e menor ou igual a R$ 1.000.000,00.
      *
      *   Obs.: quando o valor do imóvel não estiver na faixa solicitada, deve ser apresentada a seguinte mensagem

@@ -9,4 +9,13 @@ public class Ator extends Pessoa{
         this.numeroOscarsVencidos = numeroOscarsVencidos;
     }
 
-}
+    public int getNumeroOscarsVencidos() {
+        return numeroOscarsVencidos;
+    }
+
+        public void imprimir() {
+            super.imprimir();
+            System.out.println("Quantidade de Oscars Vencidos" + getNumeroOscarsVencidos());
+        }
+    }
+
