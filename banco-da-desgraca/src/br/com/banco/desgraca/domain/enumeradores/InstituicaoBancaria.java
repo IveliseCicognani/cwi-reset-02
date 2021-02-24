@@ -8,7 +8,7 @@ public enum InstituicaoBancaria {
     ITAU("Itaú"),
     NUBANK("Nubank");
 
-    private String descricao;
+    protected String descricao;
 
     InstituicaoBancaria(String descricao) {
         this.descricao = descricao;

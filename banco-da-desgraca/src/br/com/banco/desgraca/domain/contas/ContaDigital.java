@@ -1,6 +1,5 @@
-package br.com.banco.desgraca.domain.conta;
+package br.com.banco.desgraca.domain.contas;
 
-import br.com.banco.desgraca.domain.DadosContaBancaria;
 import br.com.banco.desgraca.domain.enumeradores.InstituicaoBancaria;
 import br.com.banco.desgraca.exception.ValidaInstituicao;
 import br.com.banco.desgraca.exception.ValorInformadoInvalido;

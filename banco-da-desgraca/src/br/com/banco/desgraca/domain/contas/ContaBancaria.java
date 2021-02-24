@@ -1,4 +1,4 @@
-package br.com.banco.desgraca.domain.conta;
+package br.com.banco.desgraca.domain.contas;
 
         import br.com.banco.desgraca.domain.enumeradores.InstituicaoBancaria;
 

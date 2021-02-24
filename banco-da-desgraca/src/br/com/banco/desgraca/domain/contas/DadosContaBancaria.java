@@ -1,6 +1,7 @@
-package br.com.banco.desgraca.domain;
+package br.com.banco.desgraca.domain.contas;
 
 import br.com.banco.desgraca.Data;
+import br.com.banco.desgraca.domain.Transacao;
 import br.com.banco.desgraca.domain.enumeradores.InstituicaoBancaria;
 import br.com.banco.desgraca.domain.enumeradores.TipoConta;
 import br.com.banco.desgraca.domain.enumeradores.TipoTransacao;
@@ -38,7 +39,10 @@ public abstract class DadosContaBancaria {
     public void exibirExtrato(LocalDate inicio, LocalDate fim){
         for(Transacao transacao : transacao){
             if (transacao.getDataTransacao().compareTo(inicio) >= 0 && transacao.getDataTransacao().compareTo(fim) <=0){
-                System.out.println("x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x");
+                System.out.println("\n ---------- EXTRATO " + tipoConta.getDescricao() + " "
+                                + instituicaoBancaria.getDescricao()+ " "
+                                +numeroConta+
+                                " ----------");
                 System.out.println(transacao.toString());
             }
 
