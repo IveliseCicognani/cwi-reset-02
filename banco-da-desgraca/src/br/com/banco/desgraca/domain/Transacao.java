@@ -35,9 +35,8 @@ public class Transacao {
 
     @Override
     public String toString() {
-        return "   " + tipoTransacao.getFator()+
-                "   R$ " + valor +
-                "  " + dataTransacao +
+        return "\t\t [" + tipoTransacao.getFator()+ "]  R$ " + valor +
+                "\t" + dataTransacao +
                 ' ';
     }
 

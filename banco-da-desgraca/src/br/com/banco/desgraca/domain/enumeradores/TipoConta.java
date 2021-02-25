@@ -6,7 +6,7 @@ public enum TipoConta {
     CONTA_POUPANCA ("Conta Poupança"),
     CONTA_DIGITAL ("Conta Digital");
 
-    private String descricao;
+    public String descricao;
 
     TipoConta(String descricao) {
         this.descricao = descricao;

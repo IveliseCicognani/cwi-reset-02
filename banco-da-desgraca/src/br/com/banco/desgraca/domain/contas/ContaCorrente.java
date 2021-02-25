@@ -1,62 +1,62 @@
 package br.com.banco.desgraca.domain.contas;
+import br.com.banco.desgraca.Data;
+import br.com.banco.desgraca.domain.Transacao;
 import br.com.banco.desgraca.domain.enumeradores.InstituicaoBancaria;
+import br.com.banco.desgraca.domain.enumeradores.TipoConta;
+import br.com.banco.desgraca.domain.enumeradores.TipoTransacao;
 import br.com.banco.desgraca.exception.ValorInformadoInvalido;
-
 import java.text.DecimalFormat;
-import java.time.LocalDate;
 
 public class ContaCorrente extends DadosContaBancaria implements ContaBancaria {
 
 
     public ContaCorrente(InstituicaoBancaria instituicaoBancaria, int numeroConta) {
         super(instituicaoBancaria, numeroConta);
+        setTipoConta(TipoConta.CONTA_CORRENTE);
     }
 
     @Override
     public InstituicaoBancaria getInstituicaoBancaria() {
-        return getInstituicaoBancaria();
+        return super.getInstituicaoBancaria();
     }
 
-    @Override
-    public Double consultarSaldo() {
-        return null;
-    }
-
-    @Override
-    public void depositar(Double valor) {
-
-    }
 
     @Override
     public void sacar(Double valor) {
+        verificaSaldoPositivo(valor, getSaldo());
         if(valor % 5 == 0){
-            valor = valor;
+            setSaldo(getSaldo() - valor);
         }else{
             throw new ValorInformadoInvalido("Valor informado é inválido para saque!");
         }
-        System.out.println("Sacando valor R$ " + DecimalFormat.getCurrencyInstance().format(valor) + " da " +toString());
+        transacao.add(new Transacao(TipoTransacao.SAQUE, Data.getDataTransacao(), valor));
+        System.out.println("\n\t\t----- SACANDO "+ DecimalFormat.getCurrencyInstance().format(valor)+ " -----\n\t\t DE: " +getTipoConta().getDescricao()+
+                " " +getInstituicaoBancaria().getDescricao()+" " +super.getNumeroConta()+ "");
 
     }
 
     @Override
     public void transferir(Double valor, ContaBancaria contaDestino) {
-        if(getInstituicaoBancaria().equals(contaDestino)){
-           valor= valor;
-        }else {
-            valor=+valor*0.1;
+        Double valorOriginal = valor;
+        mesmaConta(contaDestino);
+        if(contaDestino.getInstituicaoBancaria() != (super.getInstituicaoBancaria())){
+            valor += valor * 0.01;
         }
-        System.out.println("Transferindo valor R$ "+ DecimalFormat.getCurrencyInstance().format(valor) + " da " +toString() +
-                "para a " +contaDestino+".");
+        verificaSaldoPositivo(valor, getSaldo());
+        setSaldo(getSaldo() - valor);
+        transacao.add(new Transacao(TipoTransacao.TRANSFERENCIA, Data.getDataTransacao(), valor));
+        System.out.println("\n\t\t----- TRANSFERINDO "+ DecimalFormat.getCurrencyInstance().format(valor)+ " -----\n\t\t DE: " +getTipoConta().getDescricao()+
+                " " +getInstituicaoBancaria().getDescricao()+" " +super.getNumeroConta()+ "\n\t\t PARA: "
+                                  + ((DadosContaBancaria)contaDestino).getTipoConta().getDescricao()+ " "
+                +contaDestino.getInstituicaoBancaria().getDescricao()+" " +((DadosContaBancaria)contaDestino).getNumeroConta()+"");
+
+        contaDestino.depositar(valorOriginal);
     }
+
 
     @Override
-    public void exibirExtrato(LocalDate inicio, LocalDate fim) {
-
+    public Double consultarSaldo() {
+        System.out.println("\n\t\tSeu saldo atual é de: R$ " +super.consultarSaldo());
+        return super.consultarSaldo();
     }
-
-    @Override
-    public String toString() {
-        return "Conta Corrente "+super.toString();
-    }
-
 }

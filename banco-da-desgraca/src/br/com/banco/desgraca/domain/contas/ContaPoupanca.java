@@ -24,44 +24,50 @@ public class ContaPoupanca extends DadosContaBancaria implements ContaBancaria{
 
     @Override
     public void sacar(Double valor) {
+        verificaSaldoPositivo(valor, getSaldo());
         if (valor >= 50){
-            valor += valor * 0.2;
-            verificaSaldoPositivo(valor, getSaldo());
-            setSaldo(getSaldo() + valor);
-
-            System.out.println("Sacando valor R$ "+DecimalFormat.getCurrencyInstance().format(valor)+ " da " +getTipoConta()+
-                    " "+getInstituicaoBancaria());
-            transacao.add(new Transacao(TipoTransacao.SAQUE, Data.getDataTransacao(), valor));
-        }else {
+            valor += valor * 0.02;
+            setSaldo(getSaldo() - valor);
+        } else {
             throw new ValorInformadoInvalido("Valor informado é inválido para saque!");
         }
+        transacao.add(new Transacao(TipoTransacao.SAQUE, Data.getDataTransacao(), valor));
+        System.out.println("\n\t\t----- SACANDO "+ DecimalFormat.getCurrencyInstance().format(valor)+ " -----\n\t\t DE: " +getTipoConta().getDescricao()+
+                " " +getInstituicaoBancaria().getDescricao()+" " +super.getNumeroConta()+ "");
 
     }
 
     @Override
     public void transferir(Double valor, ContaBancaria contaDestino) {
-        if(contaDestino.getInstituicaoBancaria() == (super.getInstituicaoBancaria())){
+        Double valorOriginal = valor;
+        mesmaConta(contaDestino);
+        if (contaDestino.getInstituicaoBancaria() == (super.getInstituicaoBancaria())) {
             valor += valor * 0.05;
-            verificaSaldoPositivo(valor,getSaldo());
-            setSaldo(getSaldo() + valor);
-            transacao.add(new Transacao(TipoTransacao.TRANSFERENCIA, Data.getDataTransacao(), valor));
         } else {
             valor += valor * 0.1;
-            verificaSaldoPositivo(valor,getSaldo());
-            setSaldo(getSaldo() + valor);
-            transacao.add(new Transacao(TipoTransacao.TRANSFERENCIA, Data.getDataTransacao(), valor));
         }
-        System.out.println("Transferindo valor "+ DecimalFormat.getCurrencyInstance().format(valor)+ " da " +getTipoConta().getDescricao()+
-                " " +getInstituicaoBancaria().getDescricao()+" " +super.getNumeroConta()+ " para o "
-                +contaDestino.getInstituicaoBancaria().getDescricao()+".");
+        verificaSaldoPositivo(valor, getSaldo());
+        setSaldo(getSaldo() - valor);
+        transacao.add(new Transacao(TipoTransacao.TRANSFERENCIA, Data.getDataTransacao(), valor));
+        System.out.println("\n\t\t----- TRANSFERINDO " + DecimalFormat.getCurrencyInstance().format(valor) + " -----\n\t DE: " + getTipoConta().getDescricao() +
+                " " + getInstituicaoBancaria().getDescricao() + " " + super.getNumeroConta() + "\n\t PARA: "
+                + ((DadosContaBancaria) contaDestino).getTipoConta().getDescricao() + " "
+                + contaDestino.getInstituicaoBancaria().getDescricao() + " " + ((DadosContaBancaria) contaDestino).getNumeroConta() + "");
+
+        contaDestino.depositar(valorOriginal);
     }
 
-    public void validaContaPoupanca(){
+        public void validaContaPoupanca(){
         if (super.getInstituicaoBancaria().equals(InstituicaoBancaria.NUBANK)){
             throw new ValidaInstituicao("Instituição não permite Poupança!");
         }
     }
 
+    @Override
+    public Double consultarSaldo() {
+        System.out.println("\n\t\tSeu saldo atual é de: R$ " +super.consultarSaldo());
+        return super.consultarSaldo();
+    }
 
     @Override
     public String toString() {
