@@ -1,5 +1,4 @@
 package br.com.banco.desgraca.domain.contas;
-
 import br.com.banco.desgraca.Data;
 import br.com.banco.desgraca.domain.Transacao;
 import br.com.banco.desgraca.domain.enumeradores.InstituicaoBancaria;
