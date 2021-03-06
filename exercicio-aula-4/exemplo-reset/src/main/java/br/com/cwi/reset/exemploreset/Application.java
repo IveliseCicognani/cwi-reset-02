@@ -1,7 +1,5 @@
 package br.com.cwi.reset.exemploreset;
 
-import javax.xml.ws.Service;
-
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.SpringApplication;
 import org.springframework.beans.factory.annotation.Autowired;
