@@ -1,8 +1,11 @@
 package br.com.cwi.resetflix.entity;
 
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
 import java.util.List;
 
 public class DiretorEntity {
+    
     Long id;
     String nome;
     List<Long> idsFilmes;

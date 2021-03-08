@@ -1,5 +1,7 @@
 package br.com.cwi.resetflix.entity;
 
+import nonapi.io.github.classgraph.json.Id;
+
 import java.util.List;
 
 public class AtorEntity {
